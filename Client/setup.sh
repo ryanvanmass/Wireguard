@@ -7,10 +7,8 @@ sudo apt-get update
 sudo apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 
 ############### Generate Certificates ###############
-sudo su -c "cd /etc/wireguard/"
-pwd
-sudo su -c "wg genkey | tee client_private_key | wg pubkey > client_public_key"
-
+ sudo su -c "wg genkey | tee /etc/wireguard/client_private_key | wg pubkey > /etc/wireguard/client_public_key"
+ 
 ############### Create Configuration File ###############
 #Creates the File
 sudo su -c "touch wg0-client.conf"
