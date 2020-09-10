@@ -13,7 +13,7 @@ sudo apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 sudo su -c "touch /etc/wireguard/wg0-client.conf"
 
 #Variables for next step
-PrivateKey=$(cat /etc/wireguard/client_private_key)
+PrivateKey=$(sudo cat /etc/wireguard/client_private_key)
 
 echo "What is the Server Public Key?"
 read ServerKey
@@ -33,7 +33,7 @@ sudo su -c "echo \"[Peer]\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"PublicKey = $ServerKey\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"Endpoint = $ServerIP:51820\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"AllowedIPs = 0.0.0.0/0\" >> /etc/wireguard/wg0-client.conf"
-sudo su -c "echo \"PersistentKeepalive = 21\" >> /etc/wireguard/wg0-client.conf"
+sudo su -c "echo \"PersistentKeepalive = 21\" >> /etc/wireguard/g-client.conf"
 
 ############### Start WireGuard ###############
 sudo wg-quick up wg0-client
