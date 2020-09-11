@@ -2,7 +2,7 @@
 ############### Dependancies Install ###############
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt-get update
-sudo apt-get install wireguard-dkms wireguard-tools linux-headers-$(uname -r)
+sudo apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 
 ############### Generate Certificates ###############
 umask 077
@@ -34,4 +34,18 @@ sysctl net.ipv4.ip_forward=1
 chown -v root:root /etc/wireguard/wg0.conf
 chmod -v 600 /etc/wireguard/wg0.conf
 wg-quick up wg0
-systemctl enable wg-quick@wg0.service 
+systemctl enable wg-quick@wg0.service
+
+############### Provide Necessary Information for Client Connections ###############
+#Variables for Printing the required Information
+PublicKey=$(cat /etc/wireguard/server_public_key)
+
+ServerIP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
+#Print required information to terminal
+clear
+echo "INFORMATION FOR CONNECTING CLIENTS"
+echo "----------------------------------"
+
+echo "Server IP: $ServerIP"
+echo "Server Public Key: $PublicKey"

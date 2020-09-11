@@ -38,3 +38,17 @@ sudo su -c "echo \"PersistentKeepalive = 21\" >> /etc/wireguard/wg0-client.conf"
 ############### Start WireGuard ###############
 sudo wg-quick up wg0-client
 sudo systemctl enable wg-quick@wg0-client
+
+############### Provide Necessary Information for Connecting to Server ###############
+#Variables for Printing the required Information
+PublicKey=$(cat /etc/wireguard/client_public_key)
+
+ClientIP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
+#Print required information to terminal
+clear
+echo "INFORMATION FOR CONNECTING TO SERVER"
+echo "----------------------------------"
+
+echo "Server IP: $ServerIP"
+echo "Server Public Key: $PublicKey"

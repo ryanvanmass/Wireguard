@@ -13,6 +13,9 @@ then
 elif [ $Device = 2 ]
 then
     sh ./Client/setup.sh
+elif [ $Device = 3 ]
+then
+    sh ./Server/addpeer.sh
 else
     echo "Error"
 fi
