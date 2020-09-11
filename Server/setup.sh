@@ -10,7 +10,7 @@ wg genkey | tee /etc/wireguard/server_private_key | wg pubkey > /etc/wireguard/s
 
 ############### Create Server Config ###############
 #Creates the File
-touch wg0.conf
+touch /etc/wireguard/wg0.conf
 
 #Variables for next step
 PrivateKey=$(cat /etc/wireguard/server_private_key)

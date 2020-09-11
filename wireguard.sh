@@ -17,5 +17,5 @@ elif [ $Device = 3 ]
 then
     sh ./Server/addpeer.sh
 else
-    echo "Error"
+    echo "Error Invalid Input"
 fi
