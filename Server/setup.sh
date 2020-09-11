@@ -19,7 +19,7 @@ PrivateKey=$(cat /etc/wireguard/server_private_key)
 echo "[Interface]" >> /etc/wireguard/wg0.conf
 echo "Address = 10.100.100.1/24 " >> /etc/wireguard/wg0.conf
 echo "SaveConfig = true " >> /etc/wireguard/wg0.conf
-echo "PrivateKey =  $PrivateKey" >> /etc/wireguard/wg0.conf
+echo "PrivateKey = $PrivateKey" >> /etc/wireguard/wg0.conf
 echo "ListenPort = 51820 " >> /etc/wireguard/wg0.conf
 echo "PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE " >> /etc/wireguard/wg0.conf
 echo " " >> /etc/wireguard/wg0.conf
