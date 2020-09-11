@@ -33,7 +33,7 @@ sudo su -c "echo \"[Peer]\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"PublicKey = $ServerKey\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"Endpoint = $ServerIP:51820\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"AllowedIPs = 0.0.0.0/0\" >> /etc/wireguard/wg0-client.conf"
-sudo su -c "echo \"PersistentKeepalive = 21\" >> /etc/wireguard/g-client.conf"
+sudo su -c "echo \"PersistentKeepalive = 21\" >> /etc/wireguard/wg0-client.conf"
 
 ############### Start WireGuard ###############
 sudo wg-quick up wg0-client
