@@ -52,4 +52,5 @@ PublicKey=$(cat /etc/wireguard/'Mobile Clients'/$ClientName/client_public_key)
 wg set wg0 peer $PublicKey allowed-ips 10.100.100.$ClientIP/32
 
 ############### Generate QR Code ###############
-qrencode -t ansiutf8 < /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
+qrencode -t ansiutf8 < /etc/wireguard/'Mobile Clients'/$ClientName/client.conf >> /etc/wireguard/'Mobile Clients'/$ClientName/QRCode.txt
+cat  /etc/wireguard/'Mobile Clients'/$ClientName/QRCode.txt
