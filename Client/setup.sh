@@ -28,7 +28,7 @@ read ClientIP
 sudo su -c "echo \"[Interface]\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"Address = 10.100.100.$ClientIP/32 \" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"PrivateKey = $PrivateKey\" >> /etc/wireguard/wg0-client.conf"
-sudo su -c "echo \" \" >> wg0-/etc/wireguard/client.conf"
+sudo su -c "echo \" \" >>/etc/wireguard/ wg0-client.conf"
 sudo su -c "echo \"[Peer]\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"PublicKey = $ServerKey\" >> /etc/wireguard/wg0-client.conf"
 sudo su -c "echo \"Endpoint = $ServerIP:51820\" >> /etc/wireguard/wg0-client.conf"
@@ -49,8 +49,8 @@ ClientIP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 echo "INFORMATION FOR CONNECTING TO SERVER" >> ClientInformation.txt
 echo "----------------------------------" >> ClientInformation.txt
 echo""  >> ClientInformation.txt
-echo "Server IP: $ServerIP" >> ClientInformation.txt
-echo "Server Public Key: $PublicKey" >> ClientInformation.txt
+echo "Client IP: $ClientIP" >> ClientInformation.txt
+echo "Client Public Key: $PublicKey" >> ClientInformation.txt
 
 #Prints File to Termianl
 clear
