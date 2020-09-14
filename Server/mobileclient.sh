@@ -40,7 +40,7 @@ echo "Is the Client Configuration correct?"
 echo "(1 for yes or 2 for no)"
 read UserInput
 
-if [ $UserInput = 2]
+if [ $UserInput = 2 ]
 then
     nano /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
 fi
