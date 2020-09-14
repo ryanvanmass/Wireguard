@@ -3,7 +3,8 @@
 echo "Select one of the following:"
 echo "1. Server"
 echo "2. Client"
-echo "3. Add Device"
+echo "3. Add Device (PC)"
+echo "4. Add Device (Mobile)"
 read Device
 
 ############### Configures baste on User Input ###############
@@ -16,6 +17,9 @@ then
 elif [ $Device = 3 ]
 then
     sh ./Server/addpeer.sh
+elif [ $Device = 4]
+then
+    sh ./Server/mobileclient.sh
 else
     echo "Error Invalid Input"
 fi
