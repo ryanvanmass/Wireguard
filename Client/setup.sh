@@ -41,15 +41,13 @@ sudo systemctl enable wg-quick@wg0-client
 
 ############### Provide Necessary Information for Connecting to Server ###############
 #Variables for Printing the required Information
-PublicKey=$(cat /etc/wireguard/client_public_key)
-
-ClientIP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+PublicKey=$(sudo cat /etc/wireguard/client_public_key)
 
 #Creates File
 echo "INFORMATION FOR CONNECTING TO SERVER" >> ClientInformation.txt
 echo "----------------------------------" >> ClientInformation.txt
 echo " "  >> ClientInformation.txt
-echo "Client IP: $ClientIP" >> ClientInformation.txt
+echo "Client IP:  10.100.100.$ClientIP/32" >> ClientInformation.txt
 echo "Client Public Key: $PublicKey" >> ClientInformation.txt
 
 #Prints File to Termianl
