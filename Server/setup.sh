@@ -2,7 +2,7 @@
 ############### Dependancies Install ###############
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt-get update
-sudo apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
+sudo apt-get install -y qrencode wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 
 ############### Generate Certificates ###############
 umask 077
