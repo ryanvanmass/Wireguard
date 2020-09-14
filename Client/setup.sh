@@ -46,7 +46,6 @@ PublicKey=$(cat /etc/wireguard/client_public_key)
 ClientIP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 #Creates File
-clear
 echo "INFORMATION FOR CONNECTING TO SERVER" >> ClientInformation.txt
 echo "----------------------------------" >> ClientInformation.txt
 echo""  >> ClientInformation.txt
@@ -54,4 +53,5 @@ echo "Server IP: $ServerIP" >> ClientInformation.txt
 echo "Server Public Key: $PublicKey" >> ClientInformation.txt
 
 #Prints File to Termianl
+clear
 cat ClientInformation.txt
