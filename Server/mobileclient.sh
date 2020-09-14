@@ -34,6 +34,19 @@ echo "Endpoint = $ServerIP:51820" >> /etc/wireguard/'Mobile Clients'/$ClientName
 echo "AllowedIPs = 0.0.0.0/0" >> /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
 echo "PersistentKeepalive = 21" >> /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
 
+############### Confirm Client.conf looks good ###############
+cat /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
+echo "Is the Client Configuration correct?"
+echo "(1 for yes or 2 for no)"
+read UserInput
+
+if [ $UserInput = 2]
+then
+    nano /etc/wireguard/'Mobile Clients'/$ClientName/client.conf
+fi
+
+
+
 ############### Adds Client to server ###############
 PublicKey=$(cat /etc/wireguard/'Mobile Clients'/$ClientName/client_public_key)
 wg set wg0 peer $PublicKey allowed-ips 10.100.100.$ClientIP/32

@@ -17,7 +17,7 @@ then
 elif [ $Device = 3 ]
 then
     sh ./Server/addpeer.sh
-elif [ $Device = 4]
+elif [ $Device = 4 ]
 then
     sh ./Server/mobileclient.sh
 else
