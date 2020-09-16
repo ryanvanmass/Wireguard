@@ -52,3 +52,14 @@ echo "Server Public Key: $PublicKey" >> ServerInformation.txt
 #Prints file to Terminal
 clear
 cat ServerInformation.txt
+
+############### Restarts Server ###############
+echo "It is recommended that you restart the Server. Would you like to do this now? (1 for yes or 2 for no)"
+read UserInput
+
+if [ $UserInput = 1 ]
+then
+    reboot
+else
+    echo "Please reboot at your earliest conviniance"
+fi

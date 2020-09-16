@@ -23,14 +23,3 @@ then
 else
     echo "Error Invalid Input"
 fi
-
-############### Restarts Server ###############
-echo "It is recommended that you restart the Server. Would you like to do this now? (1 for yes or 2 for no)"
-read UserInput
-
-if [ $UserInput = 1 ]
-then
-    reboot
-else
-    echo "Please reboot at your earliest conviniance"
-fi
